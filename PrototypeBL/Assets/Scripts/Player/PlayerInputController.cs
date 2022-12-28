@@ -37,7 +37,7 @@ public class PlayerInputController : MonoBehaviour
     }
 
     private void CheckMove2() {
-        Vector2 moveVector = _move1Action.ReadValue<Vector2>();
+        Vector2 moveVector = _move2Action.ReadValue<Vector2>();
         if (OnMove2 != null) OnMove2(moveVector);
     }
 

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    private void OnEnable() {
+        PlayerInputController.OnMove1 += Move;
+    }
+
+    private void OnDisable() {
+        PlayerInputController.OnMove1 -= Move;
+    }
+
     public float moveSpeed;
     public float jumpForce;
 
@@ -17,11 +26,6 @@ public class PlayerMovement : MonoBehaviour
     float moveInput;
     Rigidbody2D rb2d;
     float scaleX;
-
-    public enum player {
-        player1,
-        player2
-    }
 
     // Start is called before the first frame update
     void Start() {
@@ -44,6 +48,11 @@ public class PlayerMovement : MonoBehaviour
         Flip();
         rb2d.velocity = new Vector2(moveInput * moveSpeed, rb2d.velocity.y);
     }
+
+    private void Move(Vector2 moveVector) {
+
+    }
+
 
     public void Flip() {
         if (moveInput > 0) {
